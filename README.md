@@ -24,7 +24,7 @@ with no global variable tracking which button was pressed.
 
 ## Install
 
-1. Download `CanvasDialogs_1_0_0_0.zip` from [Releases](../../releases).
+1. Download `DialogComponentLibrary_1_0_0_2.zip` from [Releases](../../releases).
 2. **make.powerapps.com → Solutions → Import solution** → select the zip →
    **Import**.
 3. Open the app where you want to use it.
