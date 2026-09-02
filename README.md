@@ -5,7 +5,7 @@ A reusable, themeable confirmation dialog for Canvas apps.
 Import it, wire it up in a few minutes, and stop rebuilding the same dialog on
 every screen.
 
-![The delete confirmation dialog](docs/screenshot.png)
+![The delete confirmation dialog](screenshot.png)
 
 ---
 
