@@ -104,7 +104,7 @@ Title          = "Delete this invoice?"
 Subtitle       = varRecordToDelete.InvoiceNumber
 SubtitleDetail = varRecordToDelete.Customer & " · " & Text(varRecordToDelete.Amount, "[$-en-US]$#,###.00")
 MessageHTML    = "The invoice and its <strong>" & CountRows(varRecordToDelete.Attachments) &
-                 " attachments</strong> are removed. This can't be undone."
+                 " attachments</strong> will be removed. This can't be undone."
 
 OnConfirm      = Set(varDeleting, true);
                  Remove(Invoices, varRecordToDelete);
