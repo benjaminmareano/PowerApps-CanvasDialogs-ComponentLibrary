@@ -65,18 +65,18 @@ Visible = varConfirmOpen
 ```powerfx
 IsOpen         = varConfirmOpen
 Title          = "Delete this invoice?"
-Subtitle       = varTarget.InvoiceNumber
-SubtitleDetail = varTarget.Customer
+Subtitle       = varRecordToDelete.InvoiceNumber
+SubtitleDetail = varRecordToDelete.Customer
 MessageHTML    = "This can't be undone."
 
-OnConfirm      = Remove(Invoices, varTarget); Set(varConfirmOpen, false)
+OnConfirm      = Remove(Invoices, varRecordToDelete); Set(varConfirmOpen, false)
 OnCancel       = Set(varConfirmOpen, false)
 ```
 
 And on the trash icon in your gallery row:
 
 ```powerfx
-OnSelect = Set(varTarget, ThisItem); Set(varConfirmOpen, true)
+OnSelect = Set(varRecordToDelete, ThisItem); Set(varConfirmOpen, true)
 ```
 
 That's the whole integration.
@@ -101,13 +101,13 @@ Visible        = varConfirmOpen
 IsOpen         = varConfirmOpen
 IsBusy         = varDeleting
 Title          = "Delete this invoice?"
-Subtitle       = varTarget.InvoiceNumber
-SubtitleDetail = varTarget.Customer & " · " & Text(varTarget.Amount, "[$-en-US]$#,###.00")
-MessageHTML    = "The invoice and its <strong>" & CountRows(varTarget.Attachments) &
+Subtitle       = varRecordToDelete.InvoiceNumber
+SubtitleDetail = varRecordToDelete.Customer & " · " & Text(varRecordToDelete.Amount, "[$-en-US]$#,###.00")
+MessageHTML    = "The invoice and its <strong>" & CountRows(varRecordToDelete.Attachments) &
                  " attachments</strong> are removed. This can't be undone."
 
 OnConfirm      = Set(varDeleting, true);
-                 Remove(Invoices, varTarget);
+                 Remove(Invoices, varRecordToDelete);
                  Set(varDeleting, false);
                  Set(varConfirmOpen, false);
                  Notify("Invoice deleted", NotificationType.Success)
